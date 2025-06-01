@@ -563,13 +563,17 @@
         </div>
     </div>
 
+
     <script>
-          document.addEventListener("click", () => {
+       
+        document.addEventListener("click", () => {
             const music = document.getElementById("bgMusic");
             if (music.paused) {
             music.play().catch(e => console.log("Autoplay blocked"));
             }
         }, { once: true });
+
+
 
         // Create floating hearts
         function createFloatingHeart() {
