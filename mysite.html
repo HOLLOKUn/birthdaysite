@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>જન્મદિવસ મુબારક પ્રિયતમા! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Gujarati', 'Shruti', 'Gujarati MT', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.2); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #ff6b9d;
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin: 0 10px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-card h2 {
+            color: #fecfef;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .message-card p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .photo-frame {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            padding: 8px;
+            margin: 40px auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 20px;
+            line-height: 1.4;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: none;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            text-align: center;
+            font-style: italic;
+            color: #fecfef;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .wishes-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .wish-bubble {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 20px 30px;
+            margin: 20px;
+            display: inline-block;
+            animation: bounce 2s infinite;
+            font-size: 1.1rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.6);
+            font-size: 20px;
+            animation: floatUp 4s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .birthday-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .birthday-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        .celebration {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .photo-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 30px 20px 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .slideshow-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .slideshow-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .slideshow-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .slideshow-heart {
+            position: absolute;
+            color: rgba(255, 107, 157, 0.8);
+            font-size: 30px;
+            animation: floatUpSlideshow 3s infinite linear;
+        }
+
+        @keyframes floatUpSlideshow {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .slideshow-title {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .message-card {
+                padding: 20px;
+            }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="floating-hearts"></div>
+    
+    <!-- Photo Slideshow Modal -->
+    <div class="photo-slideshow" id="photoSlideshow">
+        <div class="slideshow-hearts" id="slideshowHearts"></div>
+        <div class="slideshow-title">🎉 તમારી યાદોનો ખજાનો 🎉</div>
+        <button class="slideshow-close" onclick="closeSlideshow()">×</button>
+        
+        <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="slide-image">
+                    <!-- Replace with actual photo: -->
+                     <img src="IMG_20250331_194430.jpg" alt="Memory 1" class="slide-image">
+                </div>
+                <div class="slide-caption">તમારું પ્રથમ સુંદર સ્મિત જે મારા હૃદયને છૂએ છે</div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-image">
+                     <img src="WhatsApp Image 2025-06-01 at 15.16.41_f6faf823.jpg" alt="Memory 1" class="slide-image">
+                    
+                </div>
+                <div class="slide-caption">આપણે સાથે વિતાવેલી તે અદ્ભુત ક્ષણો</div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-image">
+                     <img src="WhatsApp Image 2025-05-12 at 13.31.07_5777244e.jpg" alt="Memory 1" class="slide-image">
+                    
+                </div>
+                <div class="slide-caption">તમારી સાથે હર પળ એક ઉત્સવ છે</div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="slide-image">
+                     <img src="IMG_20250331_195503.jpg" alt="Memory 1" class="slide-image">
+                    
+                </div>
+                <div class="slide-caption">મારા જીવનની સૌથી સુંદર યાદો તમારી સાથે</div>
+            </div>
+            
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="slide-image">
+                     <img src="WhatsApp Image 2025-06-01 at 15.20.06_cb5778be.jpg" alt="Memory 1" class="slide-image">
+                    
+                </div>
+                <div class="slide-caption">તમે મારા હૃદયનો રાજા છો, હંમેશા અને હંમેશા</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>જન્મદિવસ મુબારક</h1>
+            <p class="subtitle">આજનો દિવસ તમારા માટે ખાસ છે, તમે કેટલી અદ્ભુત છો તેની ઉજવણી કરવાનો</p>
+            <span class="heart">💖</span>
+            <span class="heart">🌟</span>
+            <span class="heart">💖</span>
+        </div>
+
+        <div class="photo-frame">
+            <!-- Replace this section with one of the options below -->
+            
+            <!-- OPTION 1: Direct image element (easiest) -->
+            <!-- <img src="path-to-her-photo.jpg" alt="My Beautiful Wife" class="main-photo"> -->
+            
+            <!-- OPTION 2: Background image (current placeholder) -->
+            <div class="photo-placeholder" style="background-image: url('path-to-her-photo.jpg');">
+                <!-- This text will be hidden when you add the background-image -->
+                તમારું સુંદર સ્મિત મારા જીવનમાં દરરોજ પ્રકાશ લાવે છે ✨
+            </div>
+        </div>
+
+        <div class="message-card">
+            <h2>તમારા ખાસ દિવસ માટે </h2>
+            <p> આજે તમારી જીવનયાત્રાનું એક વધુ વર્ષ પૂર્ણ થયું છે, અને હું આ સફર તમારી સાથે શેર કરું છું તેના માટે કેટલો આભારી છું તે કહી શકું એમ નથી. તમારું હાસ્ય મારો પ્રિય અવાજ છે, તમારું સ્મિત મારી દૈનિક પ્રેરણા છે, અને તમારો પ્રેમ મારો સૌથી મોટો ખજાનો છે.</p>
+            <p>તમારી સાથેનો દરેક દિવસ ઉત્સવ જેવો લાગે છે, પરંતુ આજે આપણે તેને સત્તાવાર બનાવી શકીએ છીએ. તમે જીવનમાં બધી ખુશી, પ્રેમ અને આનંદને પાત્ર છો, અને હું વચન આપું છું કે દરેક દિવસ તમને તે બરાબર આપવાનો પ્રયાસ કરીશ.</p>
+            <p>આ વર્ષે વધુ સાહસો, હાસ્ય, સપનાઓનું સાકાર થવું, અને દરેક વીતતા દિવસ સાથે વધતો જતો પ્રેમ માટે. તમે ફક્ત મારી પત્ની જ નથી, તમે મારી શ્રેષ્ઠ મિત્ર, દરેક વસ્તુમાં મારી ભાગીદાર અને મારા જીવનનો પ્રેમ છો.</p>
+        </div>
+
+        <div class="message-card">
+            <h2>આપણી સુંદર યાદો</h2>
+            <p>દરેક ફોટો એક વાર્તા કહે છે, અને તમારી સાથેની દરેક વાર્તા મારી પ્રિય છે. અહીં કેટલીક એવી ક્ષણો છે જે મારા હૃદયને હસાવે છે:</p>
+            
+
+            <div class="feature-card">
+                <span class="feature-icon">🌹</span>
+                <h3>તમારી સુંદરતા</h3>
+                <p>અંદરથી અને બહારથી, તમે એવી સુંદરતા ફેલાવો છો જે દરરોજ મારો શ્વાસ લઈ લે છે</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">💝</span>
+                <h3>તમારું હૃદય</h3>
+                <p>તમારી દયા, કરુણા અને પ્રેમ તમારી આસપાસના દરેક વ્યક્તિ માટે દુનિયાને વધુ સારી જગ્યા બનાવે છે</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⭐</span>
+                <h3>તમારા સપના</h3>
+                <p>તમને તમારા સપનાઓનો પીછો કરતા અને તમારા લક્ષ્યો હાંસલ કરતા જોવાથી મને દરરોજ વધુ સારું બનવાની પ્રેરણા મળે છે</p>
+            </div>
+        </div>
+
+        <div class="wishes-section">
+            <h2>ફક્ત તમારા માટે જન્મદિવસની શુભેચ્છાઓ</h2>
+            <div class="wish-bubble">આ વર્ષ તમને અનંત આનંદ લાવે! 🎉</div>
+            <div class="wish-bubble">સાથે નવા સાહસો માટે! 🌟</div>
+            <div class="wish-bubble">તમે દુનિયાની બધી ખુશીને પાત્ર છો! 💖</div>
+            <div class="wish-bubble">બિલકુલ અદ્ભુત હોવાનું આ એક વધુ વર્ષ! ✨</div>
+        </div>
+
+        <div class="celebration">
+            <button class="birthday-button" onclick="celebrate()">🎂 મીણબત્તીઓ ફૂંકાવો! 🎂</button>
+            <div id="celebration-message" style="margin-top: 20px; font-size: 1.5rem; opacity: 0; transition: opacity 1s ease;"></div>
+        </div>
+
+        <div class="message-card">
+            <h2>હંમેશા અને હંમેશા</h2>
+            <p>તમે છો તે માટે આભાર. મને પસંદ કરવા બદલ આભાર. મારા જીવનનો દરેક દિવસ શ્રેષ્ઠ દિવસ જેવો લાગે તે માટે આભાર. હું તમને શબ્દોથી કહી શકું તેટલાં કરતાં વધુ પ્રેમ કરું છું, અને તમારી સાથે વધુ ઘણા જન્મદિવસો ઉજવવા માટે હું બહુ ઉત્સાહિત છું.</p>
+            <p style="text-align: center; font-size: 1.5rem; color: #fecfef; margin-top: 30px;">
+                જન્મદિવસ મુબારક, મારા પ્રિય! 💕
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 4 + 's';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.getElementById('floating-hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 800);
+
+        // Birthday celebration function
+        function celebrate() {
+            const messages = [
+                "🎉 એક ઇચ્છા કરો અને મીણબત્તીઓ ફૂંકાવો! 🎉",
+                "✨ તમારી ઇચ્છા મારો હુકમ છે, જન્મદિવસની રાણી! ✨",
+                "🎂 આગળના એક અદ્ભુત વર્ષ માટે! 🎂",
+                "💖 તમે કોઈ પણ મીણબત્તીથી વધુ તેજસ્વી રીતે મારું જગત પ્રકાશિત કરો છો! 💖",
+                "🌟 સૌથી અદ્ભુત મહિલાને જન્મદિવસ મુબારક! 🌟"
+            ];
+            
+            const messageEl = document.getElementById('celebration-message');
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            messageEl.textContent = randomMessage;
+            messageEl.style.opacity = '1';
+            
+            // Create celebration hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => createFloatingHeart(), i * 100);
+            }
+            
+            // Show photo slideshow after 2 seconds
+            setTimeout(() => {
+                showSlideshow();
+            }, 2000);
+            
+            // Hide message after 4 seconds
+            setTimeout(() => {
+                messageEl.style.opacity = '0';
+            }, 4000);
+        }
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        let slideInterval;
+        
+        function showSlideshow() {
+            document.getElementById('photoSlideshow').style.display = 'flex';
+            currentSlide = 0;
+            
+            // Start slideshow
+            slideInterval = setInterval(nextSlide, 3000); // Change photo every 3 seconds
+            
+            // Create hearts in slideshow
+            setInterval(() => {
+                if (document.getElementById('photoSlideshow').style.display === 'flex') {
+                    createSlideshowHeart();
+                }
+            }, 500);
+        }
+        
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlide].classList.remove('active');
+            
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function closeSlideshow() {
+            document.getElementById('photoSlideshow').style.display = 'none';
+            clearInterval(slideInterval);
+            
+            // Clear slideshow hearts
+            document.getElementById('slideshowHearts').innerHTML = '';
+        }
+        
+        function createSlideshowHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'slideshow-heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 3 + 's';
+            document.getElementById('slideshowHearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Add some initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 1000);
+        }
+    </script>
+</body>
+</html>
